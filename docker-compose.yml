@@ -1,0 +1,13 @@
+services:
+  bridge:
+    image: ghcr.io/aarnaud/docker-protonmail-bridge:latest
+    container_name: protonmail-bridge
+    restart: unless-stopped
+    volumes:
+      - bridge-data:/home/bridge
+    ports:
+      - "127.0.0.1:1143:1143"
+      - "127.0.0.1:1025:1025"
+
+volumes:
+  bridge-data:
